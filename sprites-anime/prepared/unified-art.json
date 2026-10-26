@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "style_reference": "unified-source/style-reference.png",
+  "runtime_heights": [
+    119,
+    187,
+    238
+  ],
+  "full_figure_only": true,
+  "sources": {
+    "care": "132a52f3a4950bb22300150c0db0ec09750f9463a284aabfc65a78bd69ee5f23",
+    "expressions": "d639c197b94d130a86b8a11d3b932f455828f57737f3db7fba53c01c211590b6",
+    "drink": "2135014ca8c715260d903ff311feaba7073537ac7dfbbbf25db5e3127a3da4e4",
+    "heart-finger": "eae7c44df19776eae465660a907c7f8ad381377ecf1e166191ae807722796f0f",
+    "heart-chest": "ac175678388d42b36c7d4830e485be9acd7c020002c89b809764e05b8a7b3acf",
+    "heart-overhead": "3b2cb394b4d6f2b794409a536589fbe9f900e3bc614fc4176e139effd468f4b5"
+  }
+}

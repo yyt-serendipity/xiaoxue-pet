@@ -1,0 +1,7 @@
+<!doctype html><meta charset="utf-8"><title>整体动效对比</title>
+<style>body{font:16px system-ui;background:#f4f1ed;color:#334454;margin:32px}main{display:flex;gap:24px;flex-wrap:wrap}figure{margin:0;background:white;border-radius:16px;padding:18px;text-align:center}img{display:block;max-width:100%;height:320px}select,button{font:inherit;padding:9px 16px;margin:12px 12px 18px 0}p{max-width:850px;line-height:1.7}</style>
+<h1>整体动效 · 前后对比</h1><p>相同人物素材，实际 Qt 控件离线渲染。对比呼吸、行走起停与跳跃；不代表原大肥鱼程序实录，也不是游戏 FPS 测试。</p>
+<select id="pick"><option value="idle">待机呼吸</option><option value="walk_stop">开始走路 → 停下</option><option value="jump">轻轻跳跃</option></select><button id="toggle">暂停</button>
+<main><figure><img id="before"><figcaption>调整前</figcaption></figure><figure><img id="after"><figcaption>当前版</figcaption></figure></main>
+<p>整个人物微幅变换，没有拆分肢体；既有手部原画和光流中间帧未改动。位移的小数累计在实际窗口移动时生效，这个固定镜头预览不展示屏幕位移。</p>
+<script>let paused=false;let pick=document.getElementById('pick'),button=document.getElementById('toggle');function show(){for(let id of ['before','after'])document.getElementById(id).src=id+'-'+pick.value+(paused||document.hidden?'-still':'')+'.png'}pick.onchange=show;button.onclick=()=>{paused=!paused;button.textContent=paused?'播放':'暂停';show()};document.addEventListener('visibilitychange',show);show();</script>

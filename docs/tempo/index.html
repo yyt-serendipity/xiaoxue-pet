@@ -1,0 +1,7 @@
+<!doctype html><meta charset="utf-8"><title>舒缓动作对比</title>
+<style>body{font:16px system-ui;background:#f5f2ed;color:#334454;margin:32px}main{display:flex;gap:24px;flex-wrap:wrap}figure{margin:0;background:white;border-radius:18px;padding:18px;text-align:center}img{display:block;max-width:100%;height:320px}select,button{font:inherit;padding:9px 16px;margin:12px 12px 18px 0}p{max-width:850px;line-height:1.8}</style>
+<h1>慢一点，自然一点</h1><p>同一版程序、同一套人物原画，比较 1× 与新的默认 0.75×。每轮 5.2 秒，实际 Qt 控件离线采样。比心和挥手包含完整抬手、停留与收手。</p>
+<select id="pick"><option value="wave">挥挥手</option><option value="heart_finger">指尖比心</option><option value="heart_chest">双手比心</option><option value="heart_overhead">头顶大心</option><option value="walk">慢慢走</option><option value="idle">待机呼吸</option></select><button id="toggle">暂停</button>
+<main><figure><img id="natural"><figcaption>自然 · 1×</figcaption></figure><figure><img id="gentle"><figcaption>舒缓 · 0.75×（默认）</figcaption></figure></main>
+<p>新档位比 1× 慢 25%，一个动作的时长增加约 33%。没有增加运行素材或缓存。此页统一按 20ms 采样便于比较速度；程序仍使用原来的动态调度，实际游戏性能未测量。眨眼和提醒计时保持自然节奏；既有补帧重影仍可能存在。</p>
+<script>let paused=false;let pick=document.getElementById('pick'),button=document.getElementById('toggle');function show(){for(let id of ['natural','gentle'])document.getElementById(id).src=id+'-'+pick.value+(paused||document.hidden?'-still':'')+'.png'}pick.onchange=show;button.onclick=()=>{paused=!paused;button.textContent=paused?'播放':'暂停';show()};document.addEventListener('visibilitychange',show);show();</script>

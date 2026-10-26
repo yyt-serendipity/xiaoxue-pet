@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "heights": [
+    119,
+    187,
+    238,
+    306
+  ],
+  "sources": {
+    "turnaround.png": "dc88b963c0c845df80d34431637d88586f991a36e0affaf396da60bde37808dc",
+    "walk-cycle.png": "c1f0792829316ccff7b08abcce1b7064d3a5506c2d886c6855cef56e08d9b022",
+    "wave-cycle.png": "bbb1115ea294fe133f047dc8df78983762a7ed7a93c639e51bdedc0411d2b934",
+    "blink-cycle.png": "932a8a26773d52e1fa95537f208d08d73ec9e5e326ba8608d83b4e93c7f5b5db"
+  }
+}

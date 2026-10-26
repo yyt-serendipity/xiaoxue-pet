@@ -1,0 +1,20 @@
+{
+  "repository": "https://github.com/1190fasheqi/dafeiyu-pet",
+  "commit": "5b0e01856116bd2bae82df1f43c32faa5f056196",
+  "file": "桌宠.py",
+  "sha256": "dd893ddf69b820329602038da21fa7e9fa4d37a654245be2a32aeef41225975c",
+  "evidence_type": "public repository source and local Git object, not binary decompilation",
+  "github_release_assets": [],
+  "rea": "skill routing used; complete source available so no REA engine or MCP setup invoked",
+  "scope": "animation rendering, timer scheduling and movement; no networking or personal configuration accessed",
+  "source_ranges": {
+    "paintEvent": [
+      517,
+      603
+    ],
+    "tick": [
+      618,
+      693
+    ]
+  }
+}

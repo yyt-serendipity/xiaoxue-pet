@@ -1,0 +1,7 @@
+<!doctype html><meta charset="utf-8"><title>动作优化对比</title>
+<style>body{font:16px system-ui;margin:36px;background:#f5f2ed;color:#363c45}main{display:flex;gap:20px;flex-wrap:wrap}figure{margin:0;background:white;padding:24px;border-radius:16px;text-align:center}img{display:block;width:196px;height:187px}button,select{font:inherit;margin:0 12px 24px 0;padding:8px 16px}</style>
+<h1>动作优化对比</h1><p>相同原画、相同尺寸与速度，由实际动画器以 50 帧/秒采样；不代表原画数量，也不是游戏性能测试。</p>
+<select id="action"><option value="walk1">走路</option><option value="wave">挥手</option><option value="drink">喝水</option></select><button id="pause">暂停</button>
+<main><figure><img id="before"><figcaption>原播放方式</figcaption></figure><figure><img id="after"><figcaption>离线中间帧播放</figcaption></figure></main>
+<p>仍使用完整人物；快速抬手或遮挡变化可能残留补帧重影。按动作比较，不把帧数等同于动作质量。</p>
+<script>let paused=false;const pick=document.getElementById('action'),btn=document.getElementById('pause');function show(){for(const side of ['before','after'])document.getElementById(side).src=side+'-'+pick.value+(paused||document.hidden?'-still':'')+'.png'}pick.onchange=show;btn.onclick=()=>{paused=!paused;btn.textContent=paused?'播放':'暂停';show()};document.addEventListener('visibilitychange',show);show();</script>

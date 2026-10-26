@@ -1,0 +1,4 @@
+# Only for offline asset preparation, installed with --target .asset-build-tools.
+# These are deliberately absent from the desktop pet runtime requirements.
+numpy==1.26.4
+opencv-python-headless==4.10.0.84

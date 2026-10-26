@@ -1,0 +1,51 @@
+{
+  "product": "小薛同学桌宠",
+  "version": "1.0.5",
+  "unit_tests_passed": 41,
+  "default_motion_rate": 0.75,
+  "installer": {
+    "frozen_app_smoke_test": "passed",
+    "installer_extract": "passed",
+    "custom_path_unicode_and_spaces": "passed",
+    "relative_and_drive_root_rejected": "passed",
+    "upgrade_location_conflict_rejected": "passed",
+    "nonempty_foreign_folder_preserved": "passed",
+    "installer_upgrade": "passed",
+    "uninstall_preserves_unknown_files_and_settings": "passed",
+    "registry_and_shortcuts": "not mutated by automated test",
+    "network_calls": "not exercised",
+    "platform": "local Windows x64"
+  },
+  "runtime_pngs_unchanged": 1078,
+  "source_frame_limit": 2,
+  "blend_cache_mib": 2,
+  "tempo_probe": {
+    "scope": "current Qt widget, offscreen, same code, fixed 20ms sampling, no encoder buffers; not runtime scheduler or game FPS",
+    "height": 187,
+    "duration_s": 5.2,
+    "frames": 260,
+    "source_frame_limit": 2,
+    "blend_cache_mib": 2,
+    "results": [
+      {
+        "rate": 1.0,
+        "draw_p95_ms": 1.569,
+        "draw_median_ms": 0.365,
+        "working_set_range_mib": [
+          53.95,
+          56.98
+        ]
+      },
+      {
+        "rate": 0.75,
+        "draw_p95_ms": 1.249,
+        "draw_median_ms": 0.365,
+        "working_set_range_mib": [
+          54.85,
+          57.07
+        ]
+      }
+    ]
+  },
+  "preview_validation": "12 APNGs, 260 frames each; CRC and zlib scanlines passed"
+}

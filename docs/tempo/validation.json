@@ -1,0 +1,50 @@
+{
+  "gentle-heart_chest.png": {
+    "frames": 260,
+    "crc_and_zlib_scanlines": "passed"
+  },
+  "gentle-heart_finger.png": {
+    "frames": 260,
+    "crc_and_zlib_scanlines": "passed"
+  },
+  "gentle-heart_overhead.png": {
+    "frames": 260,
+    "crc_and_zlib_scanlines": "passed"
+  },
+  "gentle-idle.png": {
+    "frames": 260,
+    "crc_and_zlib_scanlines": "passed"
+  },
+  "gentle-walk.png": {
+    "frames": 260,
+    "crc_and_zlib_scanlines": "passed"
+  },
+  "gentle-wave.png": {
+    "frames": 260,
+    "crc_and_zlib_scanlines": "passed"
+  },
+  "natural-heart_chest.png": {
+    "frames": 260,
+    "crc_and_zlib_scanlines": "passed"
+  },
+  "natural-heart_finger.png": {
+    "frames": 260,
+    "crc_and_zlib_scanlines": "passed"
+  },
+  "natural-heart_overhead.png": {
+    "frames": 260,
+    "crc_and_zlib_scanlines": "passed"
+  },
+  "natural-idle.png": {
+    "frames": 260,
+    "crc_and_zlib_scanlines": "passed"
+  },
+  "natural-walk.png": {
+    "frames": 260,
+    "crc_and_zlib_scanlines": "passed"
+  },
+  "natural-wave.png": {
+    "frames": 260,
+    "crc_and_zlib_scanlines": "passed"
+  }
+}

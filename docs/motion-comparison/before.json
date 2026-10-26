@@ -1,0 +1,20 @@
+{
+  "actions": {
+    "walk1": {
+      "repeated_samples_of_159": 119
+    },
+    "wave": {
+      "repeated_samples_of_159": 81
+    },
+    "drink": {
+      "repeated_samples_of_159": 87
+    }
+  },
+  "render_p95_ms": 0.714,
+  "render_median_ms": 0.003,
+  "working_set_mib": 46.22,
+  "private_mib": 27.58,
+  "cache_limit_mib": 2,
+  "sample_interval_ms": 20,
+  "measurement_scope": "renderer only, not full app or game FPS"
+}

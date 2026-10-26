@@ -1,0 +1,27 @@
+{
+  "scope": "actual Qt widget grab, offscreen, temporary settings; excludes Windows compositor and game FPS",
+  "height": 187,
+  "sampled_duration_per_case_s": 3.2,
+  "draw_p95_ms": 1.545,
+  "draw_median_ms": 0.25,
+  "working_set_snapshots": [
+    {
+      "case": "idle",
+      "working_set_mib": 54.0,
+      "private_mib": 30.84
+    },
+    {
+      "case": "walk_stop",
+      "working_set_mib": 56.31,
+      "private_mib": 33.09
+    },
+    {
+      "case": "jump",
+      "working_set_mib": 54.56,
+      "private_mib": 31.59
+    }
+  ],
+  "source_frame_limit": 2,
+  "blend_cache_mib": 2,
+  "runtime_optical_flow": false
+}

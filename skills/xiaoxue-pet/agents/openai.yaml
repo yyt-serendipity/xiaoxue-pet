@@ -1,0 +1,4 @@
+interface:
+  display_name: "小薛同学桌宠 · 照片生成"
+  short_description: "上传人物照片，制作一致画风的连续动作、桌宠预览与轻量 Windows 程序"
+  default_prompt: "使用 $xiaoxue-pet，把我上传照片中指定的人物做成统一画风的动漫桌宠，交付连续动作预览和可运行的 Windows 桌宠。"
