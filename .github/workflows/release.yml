@@ -1,0 +1,46 @@
+name: Build Windows release
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: windows-release
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: windows-2022
+    timeout-minutes: 30
+    env:
+      QT_QPA_PLATFORM: offscreen
+      PYTHONUTF8: "1"
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install pinned runtime and build tools
+        run: python -m pip install -r requirements-lock.txt -r requirements-build.txt
+      - name: Run application tests
+        run: python -m unittest discover -p "test_*.py" -q
+      - name: Build Windows installer and portable app
+        run: python scripts/build_release.py
+      - name: Verify installation, upgrade, uninstall and frozen app
+        run: python scripts/verify_release.py
+      - name: Prepare source and skill archives
+        run: python scripts/export_source.py .publication/GitHub-ready
+      - name: Prepare release manifest
+        run: python scripts/package_github_release.py
+      - name: Upload checked files to the existing draft
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $version = (Get-Content VERSION -Raw).Trim()
+          $isDraft = gh release view "v$version" --json isDraft --jq .isDraft
+          if ($LASTEXITCODE -ne 0 -or $isDraft -ne 'true') { throw 'An existing draft release is required.' }
+          $files = Get-ChildItem -File .release | Where-Object { $_.Name -ne 'payload.zip' }
+          gh release upload "v$version" --clobber @($files.FullName)
+          if ($LASTEXITCODE -ne 0) { throw 'Release upload failed.' }

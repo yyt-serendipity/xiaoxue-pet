@@ -23,7 +23,7 @@ RAW = ('turnaround.png', 'walk-cycle.png', 'wave-cycle.png', 'blink-cycle.png')
 def candidates():
     files = [ROOT/name for name in TOP]
     files += [ROOT/'sprites-anime'/name for name in RAW]
-    for folder in ('docs', 'scripts', 'skills/xiaoxue-pet', 'packaging'):
+    for folder in ('docs', 'scripts', 'skills/xiaoxue-pet', 'packaging', '.github'):
         files += [p for p in (ROOT/folder).rglob('*') if p.is_file() and '__pycache__' not in p.parts]
     for p in (ROOT/'sprites-anime/prepared').rglob('*'):
         if p.is_file() and not {'rig', '306'}.intersection(p.parts) and p.suffix in ('.png', '.json'):
