@@ -98,4 +98,4 @@ Get-FileHash .\XiaoxuePet-1.0.5-Setup.exe -Algorithm SHA256
 
 仓库提供手动触发的 `Build Windows release` 工作流。它在干净的 Windows 环境中安装锁定依赖、运行测试、构建并验证安装包，然后上传到已存在的同版本草稿 Release。工作流不会自动公开草稿。
 
-维护者先准备同版本草稿 Release，并附上 `START_HERE.md` 与 `RELEASE_NOTES.md`，再从 Actions 触发工作流。所有步骤成功后，检查附件与 SHA256SUMS.txt，再发布草稿。工作流仅使用 GitHub 自带的仓库令牌，不需要把私人 API Key 放进源码。
+维护者先准备同版本草稿 Release，再从 Actions 触发工作流并填写草稿的 Release ID。说明文件由当前源码生成；按 ID 上传支持尚未创建版本标签的草稿。所有步骤成功后，检查附件与 SHA256SUMS.txt，再发布草稿。工作流仅使用 GitHub 自带的仓库令牌，不需要把私人 API Key 放进源码。

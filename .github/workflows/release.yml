@@ -1,6 +1,12 @@
 name: Build Windows release
 on:
   workflow_dispatch:
+    inputs:
+      release_id:
+        description: Existing draft release ID
+        required: true
+        default: "424096623"
+        type: string
 permissions:
   contents: write
 concurrency:
@@ -14,6 +20,7 @@ jobs:
       QT_QPA_PLATFORM: offscreen
       PYTHONUTF8: "1"
       GH_TOKEN: ${{ github.token }}
+      RELEASE_ID: ${{ inputs.release_id }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -35,12 +42,4 @@ jobs:
       - name: Prepare release manifest
         run: python scripts/package_github_release.py
       - name: Upload checked files to the existing draft
-        shell: pwsh
-        run: |
-          $ErrorActionPreference = 'Stop'
-          $version = (Get-Content VERSION -Raw).Trim()
-          $isDraft = gh release view "v$version" --json isDraft --jq .isDraft
-          if ($LASTEXITCODE -ne 0 -or $isDraft -ne 'true') { throw 'An existing draft release is required.' }
-          $files = Get-ChildItem -File .release | Where-Object { $_.Name -ne 'payload.zip' }
-          gh release upload "v$version" --clobber @($files.FullName)
-          if ($LASTEXITCODE -ne 0) { throw 'Release upload failed.' }
+        run: python scripts/upload_github_draft.py

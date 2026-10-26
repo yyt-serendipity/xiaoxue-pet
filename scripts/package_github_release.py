@@ -4,7 +4,6 @@ import hashlib
 import json
 import os
 import shutil
-import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -14,9 +13,15 @@ def main():
     output = ROOT/'.release'
     for name in (f'XiaoxuePet-{version}-Source.zip', 'xiaoxue-pet-skill.zip'):
         shutil.copy2(ROOT/'.publication'/name, output/name)
-    subprocess.run(['gh', 'release', 'download', 'v'+version,
-                    '--pattern', 'START_HERE.md', '--pattern', 'RELEASE_NOTES.md',
-                    '--dir', str(output)], cwd=ROOT, check=True)
+    repository = os.environ['GITHUB_REPOSITORY']
+    (output/'START_HERE.md').write_text(
+        f'# 小薛同学桌宠 v{version}\n\n'
+        f'[产品介绍](https://github.com/{repository}#readme) · '
+        f'[版本下载](https://github.com/{repository}/releases/tag/v{version})\n\n'
+        'Windows x64。Setup.exe 可自定义安装目录；免安装版必须完整解压后运行。\n\n'
+        '升级前退出旧程序；在设置中选择「舒缓 · 0.75×」。安装包未签名，可核对 SHA256SUMS.txt。\n\n'
+        '照片制作桌宠使用 xiaoxue-pet-skill.zip；普通陪伴不需要 API Key。\n', encoding='utf-8')
+    (output/'RELEASE_NOTES.md').write_text((ROOT/'CHANGELOG.md').read_text(encoding='utf-8'), encoding='utf-8')
     report = json.loads((ROOT/'docs/release-validation.json').read_text(encoding='utf-8'))
     report['installer'] = json.loads((output/'verification.json').read_text())
     report['build_environment'] = 'GitHub Actions windows-2022, Python 3.12'

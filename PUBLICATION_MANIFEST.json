@@ -131,6 +131,7 @@
     "scripts/export_source.py",
     "scripts/package_github_release.py",
     "scripts/preview_tempo.py",
+    "scripts/upload_github_draft.py",
     "scripts/verify_release.py",
     "skills/xiaoxue-pet/SKILL.md",
     "skills/xiaoxue-pet/agents/openai.yaml",
