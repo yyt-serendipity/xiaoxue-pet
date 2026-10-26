@@ -93,3 +93,9 @@ Get-FileHash .\XiaoxuePet-1.0.5-Setup.exe -Algorithm SHA256
 
 修改 VERSION，并同步 Setup.cs 的显示/注册版本及文档文件名；重跑测试、构建、冻结启动验证和源码扫描。
 不要将上一个版本的验证结果直接写成新版本已经通过。
+
+## GitHub Windows 构建
+
+仓库提供手动触发的 `Build Windows release` 工作流。它在干净的 Windows 环境中安装锁定依赖、运行测试、构建并验证安装包，然后上传到已存在的同版本草稿 Release。工作流不会自动公开草稿。
+
+维护者先准备同版本草稿 Release，并附上 `START_HERE.md` 与 `RELEASE_NOTES.md`，再从 Actions 触发工作流。所有步骤成功后，检查附件与 SHA256SUMS.txt，再发布草稿。工作流仅使用 GitHub 自带的仓库令牌，不需要把私人 API Key 放进源码。

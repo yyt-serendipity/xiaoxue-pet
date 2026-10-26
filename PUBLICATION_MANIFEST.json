@@ -1,5 +1,6 @@
 {
   "files": [
+    ".github/workflows/release.yml",
     ".gitignore",
     "CHANGELOG.md",
     "LICENSE",
@@ -128,6 +129,7 @@
     "scripts/compare_body_motion.py",
     "scripts/compare_motion.py",
     "scripts/export_source.py",
+    "scripts/package_github_release.py",
     "scripts/preview_tempo.py",
     "scripts/verify_release.py",
     "skills/xiaoxue-pet/SKILL.md",
